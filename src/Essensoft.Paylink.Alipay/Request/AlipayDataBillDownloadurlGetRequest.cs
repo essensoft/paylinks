@@ -92,7 +92,7 @@ namespace Essensoft.Paylink.Alipay.Request
 
         public string GetApiName()
         {
-            return "alipay.data.bill.downloadurl.get";
+            return "alipay.data.dataservice.bill.downloadurl.query";
         }
 
         public void SetApiVersion(string apiVersion)
