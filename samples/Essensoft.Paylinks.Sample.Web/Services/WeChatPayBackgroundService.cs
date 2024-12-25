@@ -116,11 +116,17 @@ public class WeChatPayBackgroundService(
 
         while (!stoppingToken.IsCancellationRequested)
         {
+            if (!string.IsNullOrEmpty(_options.WeChatPay.WeChatPayPublicKeyId) && !string.IsNullOrEmpty(_options.WeChatPay.WeChatPayPublicKey))
+            {
+                logger.LogInformation("微信支付后台服务取消：已配置微信支付公钥，无需下载平台证书。");
+                break;
+            }
+
             if (string.IsNullOrEmpty(_options.WeChatPay.MchId) ||
                 string.IsNullOrEmpty(_options.WeChatPay.MchSerialNo) ||
                 string.IsNullOrEmpty(_options.WeChatPay.MchPrivateKey))
             {
-                logger.LogError("未配置微信支付客户端选项，微信支付后台服务取消。");
+                logger.LogWarning("微信支付后台服务取消：未配置微信支付下载平台证书关键参数。");
                 break;
             }
 
