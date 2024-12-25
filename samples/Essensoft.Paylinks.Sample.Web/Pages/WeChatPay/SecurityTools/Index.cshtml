@@ -1,0 +1,21 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "安全工具";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-page="/Index">首页</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-page="/WeChatPay/Index">微信支付</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<div class="mb-3">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" asp-page="/WeChatPay/SecurityTools/ConvertCertPrivateKey">转换证书私钥 PKCS#8 => PKCS#1</a>
+    </div>
+</div>

@@ -1,33 +1,34 @@
 # 如果要从更高级别的目录继承 .editorconfig 设置，请删除以下行
 root = true
 
-# 不使用制表符进行缩进。 
 [*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+dotnet_style_qualification_for_field = false:silent
+dotnet_style_qualification_for_property = false:silent
+dotnet_style_qualification_for_method = false:silent
+dotnet_style_qualification_for_event = false:silent
+
+[*.{xaml,props,targets,proj,csproj,shproj,ttproj,vcxproj}]
 indent_style = space
-
-# XML 项目文件
-[*.{csproj,props}]
 indent_size = 2
 
-# JSON 文件
-[*.json]
-indent_size = 2
-
-# c# 文件
 [*.cs]
+indent_style = space
+indent_size = 4
 
-# 字符集
-charset = utf-8-bom
+# 最大行长度
+max_line_length = 160
 
 #### Core EditorConfig 选项 ####
 
-# 缩进和间距
-indent_size = 4
-indent_style = space
-tab_width = 4
+# Resharper
+resharper_csharp_space_within_single_line_array_initializer_braces = true
+resharper_csharp_place_accessorholder_attribute_on_same_line = false
+resharper_space_within_single_line_array_initializer_braces = true
 
 # 新行首选项
-end_of_line = crlf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
@@ -84,26 +85,26 @@ dotnet_code_quality_unused_parameters = all
 # 禁止显示首选项
 dotnet_remove_unnecessary_suppression_exclusions = none
 
-# New line preferences
+# 新行首选项
 dotnet_style_allow_multiple_blank_lines_experimental = true
 dotnet_style_allow_statement_immediately_after_block_experimental = true
 
 #### c# 编码约定 ####
 
 # var 首选项
-csharp_style_var_elsewhere = false
-csharp_style_var_for_built_in_types = false
-csharp_style_var_when_type_is_apparent = false
+csharp_style_var_elsewhere = true:silent
+csharp_style_var_for_built_in_types = true:silent
+csharp_style_var_when_type_is_apparent = true:silent
 
 # Expression-bodied 成员
-csharp_style_expression_bodied_accessors = true
-csharp_style_expression_bodied_constructors = false
-csharp_style_expression_bodied_indexers = true
-csharp_style_expression_bodied_lambdas = true
-csharp_style_expression_bodied_local_functions = false
-csharp_style_expression_bodied_methods = false
-csharp_style_expression_bodied_operators = false
-csharp_style_expression_bodied_properties = true
+csharp_style_expression_bodied_accessors = true:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = false:silent
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_properties = true:silent
 
 # 模式匹配首选项
 csharp_style_pattern_matching_over_as_with_null_check = true
@@ -113,15 +114,16 @@ csharp_style_prefer_pattern_matching = true
 csharp_style_prefer_switch_expression = true
 
 # Null 检查首选项
-csharp_style_conditional_delegate_call = true
+csharp_style_conditional_delegate_call = true:suggestion
 
 # 修饰符首选项
 csharp_prefer_static_local_function = true
-csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async
+csharp_preferred_modifier_order = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, required:suggestion
 
 # 代码块首选项
-csharp_prefer_braces = true
-csharp_prefer_simple_using_statement = false
+csharp_prefer_braces = true:silent
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_namespace_declarations = file_scoped:silent
 
 # 表达式级首选项
 csharp_prefer_simple_default_expression = true
@@ -130,15 +132,16 @@ csharp_style_implicit_object_creation_when_type_is_apparent = true
 csharp_style_inlined_variable_declaration = true
 csharp_style_pattern_local_over_anonymous_function = true
 csharp_style_prefer_index_operator = true
+csharp_style_prefer_null_check_over_type_check = true
 csharp_style_prefer_range_operator = true
 csharp_style_throw_expression = true
 csharp_style_unused_value_assignment_preference = discard_variable
 csharp_style_unused_value_expression_statement_preference = discard_variable
 
 # "using" 指令首选项
-csharp_using_directive_placement = outside_namespace
+csharp_using_directive_placement = outside_namespace:silent
 
-# New line preferences
+# 新行首选项
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true
 csharp_style_allow_embedded_statements_on_same_line_experimental = true
@@ -210,24 +213,28 @@ dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
 
 dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.interface.required_modifiers = 
+dotnet_naming_symbols.interface.required_modifiers =
 
 dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
 dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.types.required_modifiers = 
+dotnet_naming_symbols.types.required_modifiers =
 
 dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.non_field_members.required_modifiers = 
+dotnet_naming_symbols.non_field_members.required_modifiers =
 
 # 命名样式
 
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
+dotnet_naming_style.pascal_case.required_prefix =
+dotnet_naming_style.pascal_case.required_suffix =
+dotnet_naming_style.pascal_case.word_separator =
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 
 dotnet_naming_style.begins_with_i.required_prefix = I
-dotnet_naming_style.begins_with_i.required_suffix = 
-dotnet_naming_style.begins_with_i.word_separator = 
+dotnet_naming_style.begins_with_i.required_suffix =
+dotnet_naming_style.begins_with_i.word_separator =
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_prefer_top_level_statements = true:silent
+csharp_style_prefer_primary_constructors = true:suggestion
+csharp_prefer_system_threading_lock = true:suggestion

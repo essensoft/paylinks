@@ -1,9 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
-    <PackageId>Essensoft.Paylink.Security</PackageId>
-    <PackageTags>Essensoft;Paylink;Security</PackageTags>
-  </PropertyGroup>
-
-</Project>

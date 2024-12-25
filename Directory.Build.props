@@ -1,38 +1,27 @@
 <Project>
 
-  <PropertyGroup>
-    <Copyright>Copyright (c) Essensoft and Contributors</Copyright>
-    <Authors>Essensoft</Authors>
-    <Product>Paylink</Product>
-    <Version>4.1.9</Version>
-    <NoWarn>$(NoWarn);CS1591;CS1570</NoWarn>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/essensoft/paylink</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/essensoft/paylink</RepositoryUrl>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <SignAssembly>true</SignAssembly>
-    <!-- Include symbol files (*.pdb) in the built .nupkg -->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <GenerateDocumentationFile Condition="'$(Configuration)' == 'Release'">true</GenerateDocumentationFile>
-    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-    <LangVersion>latest</LangVersion>
-    <SystemTextJsonPackageVersion>9.0.0</SystemTextJsonPackageVersion>
-    <MicrosoftExtensionsHttpPackageVersion>9.0.0</MicrosoftExtensionsHttpPackageVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Copyright>Copyright (c) Essensoft and Contributors</Copyright>
+		<Authors>Essensoft</Authors>
+		<Product>Paylinks</Product>
+		<Version>5.0.0</Version>
+		<NoWarn>$(NoWarn);CS8618</NoWarn>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/essensoft/paylinks</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/essensoft/paylinks</RepositoryUrl>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)logo.png" Pack="true" Visible="false" PackagePath="" />
-    <None Include="$(MSBuildThisFileDirectory)LICENSE.md" Pack="true" Visible="false" PackagePath="" />
-    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" Visible="false" PackagePath="" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'net6.0' or '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net8.0'">
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)logo.png" Pack="true" Visible="false" PackagePath=""/>
+		<None Include="$(MSBuildThisFileDirectory)LICENSE.md" Pack="true" Visible="false" PackagePath=""/>
+		<None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" Visible="false" PackagePath=""/>
+	</ItemGroup>
 
 </Project>

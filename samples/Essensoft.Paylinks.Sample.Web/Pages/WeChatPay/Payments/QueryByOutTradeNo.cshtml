@@ -1,0 +1,49 @@
+@page
+@model QueryByOutTradeNoModel
+@{
+    ViewData["Title"] = "商户订单号查询订单";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-page="/Index">首页</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-page="/WeChatPay/Index">微信支付</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-page="/WeChatPay/Payments/Index">支付产品</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<div class="card mb-3">
+    <div class="card-header">
+        @ViewData["Title"]
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label" asp-for="OutTradeNo"></label>
+                <input class="form-control" asp-for="OutTradeNo"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Input.MchId"></label>
+                <input class="form-control" asp-for="Input.MchId"/>
+            </div>
+            <button class="btn btn-primary mb-3" type="submit">提交请求</button>
+        </form>
+        <hr/>
+        @if (ViewData["response"] is string response && !string.IsNullOrEmpty(response))
+        {
+            <div class="mb-3">
+                <label class="form-label">应答</label>
+                <textarea class="form-control" rows="10">@response</textarea>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

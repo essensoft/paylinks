@@ -5,19 +5,21 @@ on:
     branches:
       - dev
     paths:
-      - '**/*.props'
       - 'global.json'
-      - 'src/**/*.cs'
-      - 'src/**/*.csproj'
+      - '**/*.props'
+      - '**/*.cs'
+      - '**/*.cshtml'
+      - '**/*.csproj'
 
   pull_request:
     branches:
       - dev
     paths:
-      - '**/*.props'
       - 'global.json'
-      - 'src/**/*.cs'
-      - 'src/**/*.csproj'
+      - '**/*.props'
+      - '**/*.cs'
+      - '**/*.cshtml'
+      - '**/*.csproj'
 
 permissions:
   contents: read
@@ -27,7 +29,7 @@ jobs:
 
     runs-on: 'ubuntu-latest'
     timeout-minutes: 10
-
+    
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET

@@ -1,0 +1,20 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "支付宝";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-page="/Index">首页</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<div class="mb-3">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" asp-page="/Alipay/Payments/Index">支付产品</a>
+        <a class="list-group-item list-group-item-action" asp-page="/Alipay/SecurityTools/Index">安全工具</a>
+        <a class="list-group-item list-group-item-action">更多...</a>
+    </div>
+</div>

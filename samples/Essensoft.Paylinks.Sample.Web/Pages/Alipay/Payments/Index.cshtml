@@ -1,0 +1,364 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "支付产品";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-page="/Index">首页</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-page="/Alipay/Index">支付宝</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<div class="mb-3">
+<div class="accordion" id="accordionPayments">
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseF2FPay" aria-expanded="false" aria-controls="collapseF2FPay">
+            当面付
+        </button>
+    </h2>
+    <div id="collapseF2FPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+        <div class="accordion-body">
+            <div class="accordion" id="accordionF2FPay">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCodePay" aria-expanded="false" aria-controls="collapseCodePay">
+                            付款码支付
+                        </button>
+                    </h2>
+                    <div id="collapseCodePay" class="accordion-collapse collapse" data-bs-parent="#accordionF2FPay">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易支付
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/08c7f9f8_alipay.trade.pay?scene=32&pathHash=cdb0ecb0" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Pay">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易查询
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cbe8826d_alipay.trade.query?scene=23&pathHash=956e67cd" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Query">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易退款
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/6b16d4a2_alipay.trade.refund?scene=common&pathHash=24d0d3ca" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Refund">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易退款查询
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/b9ef37bd_alipay.trade.fastpay.refund.query?scene=common&pathHash=84b7b273" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/RefundQuery">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    收单退款冲退完成通知
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/64342630_alipay.trade.refund.depositback.completed?scene=common&pathHash=6407afcc" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易撤销
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cd7d54d2_alipay.trade.cancel?scene=common&pathHash=444c42f0" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Cancel">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易关闭
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/48ea518b_alipay.trade.close?scene=common&pathHash=5bb01fc5" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Close">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    查询对账单下载地址
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/c8d608d7_alipay.data.dataservice.bill.downloadurl.query?scene=common&pathHash=eb4624a4" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/BillDownloadUrlQuery">去调试</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseScanPay" aria-expanded="false" aria-controls="collapseScanPay">
+                            扫码支付
+                        </button>
+                    </h2>
+                    <div id="collapseScanPay" class="accordion-collapse collapse" data-bs-parent="#accordionF2FPay">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单线下交易预创建
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/fa0c2141_alipay.trade.precreate?scene=19&pathHash=a2c4021f" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/PreCreate">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易创建
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/bf4eae5e_alipay.trade.create?scene=2d8d65b1350f44bfa394347f06700c4f&pathHash=e6c9a167" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Create">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易查询
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cbe8826d_alipay.trade.query?scene=23&pathHash=fe561798" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Query">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易退款
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/6b16d4a2_alipay.trade.refund?scene=common&pathHash=d1f3f5f0" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Refund">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易退款查询
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/b9ef37bd_alipay.trade.fastpay.refund.query?scene=common&pathHash=81e6a871" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/RefundQuery">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    收单退款冲退完成通知
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/05pf5a?scene=common&pathHash=a021a234" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易撤销
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cd7d54d2_alipay.trade.cancel?scene=common&pathHash=3c33e48e" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Cancel">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    统一收单交易关闭
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/48ea518b_alipay.trade.close?scene=common&pathHash=5e83149d" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Close">去调试</a>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    查询对账单下载地址
+                                    <div class="btn-group">
+                                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/c8d608d7_alipay.data.dataservice.bill.downloadurl.query?scene=common&pathHash=76f3d49a" target="_blank">查看文档</a>
+                                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/BillDownloadUrlQuery">去调试</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAppPay" aria-expanded="false" aria-controls="collapseAppPay">
+            APP支付
+        </button>
+    </h2>
+    <div id="collapseAppPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+        <div class="accordion-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    alipay.trade.app.pay(app支付接口2.0)
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/429e4d75_alipay.trade.app.pay?scene=20&pathHash=2dfb24f8" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/App">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/da960891_alipay.trade.refund?scene=common&pathHash=846acb56" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Refund">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    收单退款冲退完成通知
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/fca5d17e_alipay.trade.refund.depositback.completed?scene=common&pathHash=1ad5a0e2" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易关闭
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/06922cb4_alipay.trade.close?scene=common&pathHash=5874f81f" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Close">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/b95db51d_alipay.trade.fastpay.refund.query?scene=common&pathHash=40e803a6" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/RefundQuery">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cbe8826d_alipay.trade.query?scene=23&pathHash=956e67cd" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Query">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    查询对账单下载地址
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/cd439c70_alipay.trade.query?scene=23&pathHash=8b9f14fa" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/BillDownloadUrlQuery">去调试</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWapPay" aria-expanded="false" aria-controls="collapseWapPay">
+            手机网站支付
+        </button>
+    </h2>
+    <div id="collapseWapPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+        <div class="accordion-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    alipay.trade.wap.pay(手机网站支付接口2.0)
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/1a957be0_alipay.trade.wap.pay?scene=21&pathHash=5335df07" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Wap">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/28d9fff7_alipay.trade.refund?scene=common&pathHash=f834ef01" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Refund">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    收单退款冲退完成通知
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/05w4la?scene=common&pathHash=da33cafe" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易关闭
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/518cd726_alipay.trade.close?scene=common&pathHash=e489608b" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Close">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/c8d05aa7_alipay.trade.fastpay.refund.query?scene=common&pathHash=0bb7639d" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/RefundQuery">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/34849591_alipay.trade.query?scene=common&pathHash=ffb65429" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Query">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    查询对账单下载地址
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/0f828127_alipay.data.dataservice.bill.downloadurl.query?scene=common&pathHash=0c48c55e" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/BillDownloadUrlQuery">去调试</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagePay" aria-expanded="false" aria-controls="collapsePagePay">
+            电脑网站支付
+        </button>
+    </h2>
+    <div id="collapsePagePay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+        <div class="accordion-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    alipay.trade.page.pay(统一收单下单并支付页面接口)
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/2423fad5_alipay.trade.page.pay?scene=22&pathHash=47147674" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Web">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易关闭
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/429ffb46_alipay.trade.close?scene=common&pathHash=1978534d" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Close">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/01073208_alipay.trade.refund?scene=common&pathHash=17b803c8" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Refund">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    收单退款冲退完成通知
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/42a9ce75_alipay.trade.refund.depositback.completed?scene=common&pathHash=9c33d734" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/e9ce4f59_alipay.trade.query?scene=23&pathHash=582b62cd" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/Query">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    统一收单交易退款查询
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/46bff59c_alipay.trade.fastpay.refund.query?scene=common&pathHash=dfc824f9" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/RefundQuery">去调试</a>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    查询对账单下载地址
+                    <div class="btn-group">
+                        <a class="btn btn-link btn-sm" href="https://opendocs.alipay.com/open-v3/d6c4d425_alipay.data.dataservice.bill.downloadurl.query?scene=common&pathHash=871a2624" target="_blank">查看文档</a>
+                        <a class="btn btn-link btn-sm" asp-page="/Alipay/Payments/BillDownloadUrlQuery">去调试</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</div>

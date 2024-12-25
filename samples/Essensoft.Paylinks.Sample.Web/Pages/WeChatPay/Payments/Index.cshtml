@@ -1,0 +1,796 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "支付产品";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-page="/Index">首页</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-page="/WeChatPay/Index">微信支付</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+<div class="mb-3">
+    <div class="accordion" id="accordionPayments">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJsapiPay" aria-expanded="false" aria-controls="collapseJsapiPay">
+                    JSAPI支付
+                </button>
+            </h2>
+            <div id="collapseJsapiPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            JSAPI下单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/direct-jsons/jsapi-prepay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/JsapiPrepay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            JSAPI调起支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/jsapi-transfer-payment.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            支付通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/payment-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            微信支付订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-wx-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByTransactionId">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            商户订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-out-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByOutTradeNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            关闭订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/close-order.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Close">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAppPay" aria-expanded="false" aria-controls="collapseAppPay">
+                    APP支付
+                </button>
+            </h2>
+            <div id="collapseAppPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            APP下单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/direct-jsons/app-prepay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/AppPrepay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            APP调起支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/app-transfer-payment.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            支付通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/payment-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            微信支付订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-wx-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByTransactionId">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            商户订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-out-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByOutTradeNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            关闭订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/close-order.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Close">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseH5Pay" aria-expanded="false" aria-controls="collapseH5Pay">
+                    H5支付
+                </button>
+            </h2>
+            <div id="collapseH5Pay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            H5下单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/direct-jsons/h5-prepay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/H5Prepay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            H5调起支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/h5-transfer-payment.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            支付通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/payment-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            微信支付订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-wx-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByTransactionId">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            商户订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-out-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByOutTradeNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            关闭订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/close-order.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Close">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNativePay" aria-expanded="true" aria-controls="collapseNativePay">
+                    Native支付
+                </button>
+            </h2>
+            <div id="collapseNativePay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Native下单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/direct-jsons/native-prepay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/NativePrepay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Native调起支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/native-transfer-payment.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            支付通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/payment-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            微信支付订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-wx-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByTransactionId">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            商户订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-out-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByOutTradeNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            关闭订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/close-order.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Close">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMiniProgramPay" aria-expanded="false" aria-controls="collapseMiniProgramPay">
+                    小程序支付
+                </button>
+            </h2>
+            <div id="collapseMiniProgramPay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            小程序支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/mini-prepay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/JsapiPrepay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            小程序调起支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/mini-transfer-payment.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            支付通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/payment-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            微信支付订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-wx-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByTransactionId">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            商户订单号查询订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-out-trade-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/QueryByOutTradeNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            关闭订单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/close-order.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Close">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCodePay" aria-expanded="false" aria-controls="collapseCodePay">
+                    付款码支付
+                </button>
+            </h2>
+            <div id="collapseCodePay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            付款码支付
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/code-payment-v3/direct/code-pay.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/CodePay">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            撤销
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/code-payment-v3/direct/reverse.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Reverse">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombinePay" aria-expanded="false" aria-controls="collapseCombinePay">
+                    合单支付
+                </button>
+            </h2>
+            <div id="collapseCombinePay" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <div class="accordion" id="accordionCombinePay">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombineAppPay" aria-expanded="false" aria-controls="collapseAppPay">
+                                    APP支付
+                                </button>
+                            </h2>
+                            <div id="collapseCombineAppPay" class="accordion-collapse collapse" data-bs-parent="#accordionCombineAppPay">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单下单-APP
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/app-prepay.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            APP调起支付
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/app-transfer-payment.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombineJsapiPay" aria-expanded="false" aria-controls="collapseAppPay">
+                                    JSAPI支付
+                                </button>
+                            </h2>
+                            <div id="collapseCombineJsapiPay" class="accordion-collapse collapse" data-bs-parent="#accordionCombineJsapiPay">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单下单-JSAPI
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/jsapi-prepay.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            JSAPI调起支付
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/jsapi-transfer-payment.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombineNativePay" aria-expanded="false" aria-controls="collapseAppPay">
+                                    Native支付
+                                </button>
+                            </h2>
+                            <div id="collapseCombineNativePay" class="accordion-collapse collapse" data-bs-parent="#accordionCombineNativePay">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单下单-Native
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/native-prepay.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Native调起支付
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/native-transfer-payment.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombineMiniProgramPay" aria-expanded="false" aria-controls="collapseAppPay">
+                                    小程序支付
+                                </button>
+                            </h2>
+                            <div id="collapseCombineMiniProgramPay" class="accordion-collapse collapse" data-bs-parent="#accordionCombineMiniProgramPay">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单下单-小程序
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/mini-program-prepay.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            小程序调起支付
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/mini-transfer-payment.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombineH5Pay" aria-expanded="false" aria-controls="collapseAppPay">
+                                    H5支付
+                                </button>
+                            </h2>
+                            <div id="collapseCombineH5Pay" class="accordion-collapse collapse" data-bs-parent="#accordionCombineH5Pay">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单下单-H5
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/h5-prepay.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            H5调起支付
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/h5-transfer-payment.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombinePublic" aria-expanded="false" aria-controls="collapseAppPay">
+                                    公共API
+                                </button>
+                            </h2>
+                            <div id="collapseCombinePublic" class="accordion-collapse collapse" data-bs-parent="#accordionCombinePublic">
+                                <div class="accordion-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单查询
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/query-order.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            合单关单
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/close-order.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            支付通知
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/payment-notice.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            退款申请
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/create.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            查询单笔退款（通过商户退款单号）
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            退款结果通知
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/refund-result-notice.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            申请交易账单
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/bill-download/get-trade-bill.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            申请资金账单
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/bill-download/get-fund-bill.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            下载账单
+                                            <div class="btn-group">
+                                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/bill-download/download-bill.html" target="_blank">查看文档</a>
+                                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBill" aria-expanded="false" aria-controls="collapseBill">
+                    资金/交易账单
+                </button>
+            </h2>
+            <div id="collapseBill" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请交易账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/bill-download/trade-bill/get-trade-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetTradeBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            申请资金账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/bill-download/fund-bill/get-fund-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/GetFundFlowBill">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            下载账单
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/bill-download/download-bill.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/DownloadBill">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRefund" aria-expanded="false" aria-controls="collapseRefund">
+                    退款
+                </button>
+            </h2>
+            <div id="collapseRefund" class="accordion-collapse collapse" data-bs-parent="#accordionPayments">
+                <div class="accordion-body">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款申请
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/create.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/Refund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            查询单笔退款（通过商户退款单号）
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/query-by-out-refund-no.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/RefundQueryByOutRefundNo">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            发起异常退款
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/create-abnormal-refund.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm" asp-page="/WeChatPay/Payments/AbnormalRefund">去调试</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            退款结果通知
+                            <div class="btn-group">
+                                <a class="btn btn-link btn-sm" href="https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/refund-result-notice.html" target="_blank">查看文档</a>
+                                <a class="btn btn-link btn-sm disabled" href="#">去调试</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

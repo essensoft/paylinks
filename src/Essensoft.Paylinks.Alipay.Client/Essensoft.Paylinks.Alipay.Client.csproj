@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Essensoft.Paylinks.Alipay.Core\Essensoft.Paylinks.Alipay.Core.csproj" />
+		<ProjectReference Include="..\Essensoft.Paylinks.Security\Essensoft.Paylinks.Security.csproj" />
+	</ItemGroup>
+
+</Project>
