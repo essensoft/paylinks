@@ -4,8 +4,10 @@ namespace Essensoft.Paylinks.WeChatPay.Core;
 /// WeChatPay 应答、通知的头部信息
 /// </summary>
 /// <para>
-/// 如何验证签名
-/// https://pay.weixin.qq.com/docs/merchant/development/interface-rules/signature-verification.html
+/// 如何使用微信支付公钥验签 - 更新时间：2024.11.20
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013053249
+/// 如何使用平台证书验签名 - 更新时间：2024.11.29
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013053420
 /// </para>
 [Serializable]
 public class WeChatPayHeaders(string requestId, string serial, string timestamp, string nonce, string signature, string signatureType)

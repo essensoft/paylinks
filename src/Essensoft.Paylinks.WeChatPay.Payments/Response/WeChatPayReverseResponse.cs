@@ -12,7 +12,7 @@ public class WeChatPayReverseResponse : WeChatPayResponse
     public string? AppId { get; set; }
 
     /// <summary>
-    /// 直连商户号。
+    /// 商户号。
     /// </summary>
     [JsonPropertyName("mchid")]
     public string MchId { get; set; }

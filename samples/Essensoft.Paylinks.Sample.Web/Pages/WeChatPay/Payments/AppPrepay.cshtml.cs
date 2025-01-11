@@ -14,11 +14,11 @@ public class AppPrepayModel(IWeChatPayClient client, IOptions<PaylinksOptions> o
     private readonly WeChatPayClientOptions _options = options.Value.WeChatPay;
 
     [BindProperty]
-    public WeChatPayAppPrepayBodyModel Input { get; set; }
+    public WeChatPayTransactionsAppBodyModel Input { get; set; }
 
     public void OnGet()
     {
-        Input = new WeChatPayAppPrepayBodyModel
+        Input = new WeChatPayTransactionsAppBodyModel
         {
             AppId = _options.AppId,
             MchId = _options.MchId,
@@ -31,7 +31,7 @@ public class AppPrepayModel(IWeChatPayClient client, IOptions<PaylinksOptions> o
 
     public async Task OnPostAsync()
     {
-        var request = new WeChatPayAppPrepayRequest();
+        var request = new WeChatPayTransactionsAppRequest();
         request.SetBodyModel(Input);
         var response = await client.ExecuteAsync(request, _options);
         ViewData["response"] = response.Body;

@@ -7,9 +7,8 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 发起异常退款
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/create-abnormal-refund.html
-/// 发起异常退款
-/// 更新时间：2023.08.16
+/// 发起异常退款 - 更新时间：2024.12.30
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013071193
 /// </para>
 public class WeChatPayApplyAbnormalRefundByRefundIdRequest : IWeChatPayRequest<WeChatPayApplyAbnormalRefundByRefundIdResponse>
 {

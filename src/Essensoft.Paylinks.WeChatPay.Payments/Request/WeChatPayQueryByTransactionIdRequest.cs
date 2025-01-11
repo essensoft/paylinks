@@ -7,25 +7,12 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 微信支付订单号查询订单
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-wx-trade-no.html
 /// 微信支付订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-wx-trade-no.html
-/// 微信支付订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-wx-trade-no.html
-/// 微信支付订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-wx-trade-no.html
-/// 微信支付订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-wx-trade-no.html
-/// 微信支付订单号查询订单
-/// 更新时间：2023.08.16
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791858
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070354
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791837
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791879
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791899
 /// </para>
 public class WeChatPayQueryByTransactionIdRequest : IWeChatPayRequest<WeChatPayQueryByTransactionIdResponse>
 {

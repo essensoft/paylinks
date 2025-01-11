@@ -7,25 +7,16 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 关闭订单
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/close-order.html
-/// 关闭订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/close-order.html
-/// 关闭订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/close-order.html
-/// 关闭订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/close-order.html
-/// 关闭订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/close-order.html
-/// 关闭订单
-/// 更新时间：2023.08.16
+/// 关闭订单 - 更新时间：2024.12.11
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791860
+/// 关闭订单 - 更新时间：2024.11.25
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070360
+/// 关闭订单 - 更新时间：2024.12.11
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791839
+/// 关闭订单 - 更新时间：2024.12.11
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791881
+/// 关闭订单 - 更新时间：2024.12.11
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791901
 /// </para>
 public class WeChatPayCloseByOutTradeNoRequest : IWeChatPayRequest<WeChatPayCloseByOutTradeNoResponse>
 {

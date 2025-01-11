@@ -6,43 +6,44 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Response;
 public class WeChatPayAppTransferPaymentResponse : WeChatPaySdkResponse
 {
     /// <summary>
-    /// 微信开放平台审核通过的移动应用AppID。
+    /// 填写下单时传入的【公众账号ID】appid。
     /// </summary>
-    [JsonPropertyName("appid")]
+    [JsonPropertyName("appId")]
     public string AppId { get; set; }
 
     /// <summary>
-    /// 请填写商户号mchid对应的值。
+    /// 填写下单时传入的【商户号】mchid。
     /// </summary>
-    [JsonPropertyName("partnerid")]
+    [JsonPropertyName("partnerId")]
     public string PartnerId { get; set; }
 
     /// <summary>
-    /// 微信返回的支付交易会话ID，该值有效期为2小时。
+    /// 预支付交易会话标识。APP下单接口返回的prepay_id，该值有效期为2小时，超过有效期需要重新请求APP下单接口以获取新的prepay_id。
     /// </summary>
-    [JsonPropertyName("prepayid")]
+    [JsonPropertyName("prepayId")]
     public string PrepayId { get; set; }
 
     /// <summary>
-    /// 暂填写固定值Sign=WXPay
+    /// 填写固定值Sign=WXPay
     /// </summary>
-    [JsonPropertyName("package")]
-    public string Package { get; set; }
+    [JsonPropertyName("packageValue")]
+    public string PackageValue { get; set; }
 
     /// <summary>
-    /// 随机字符串，不长于32位。推荐随机数生成算法。
+    /// 随机字符串，不长于32位。该值建议使用随机数算法生成。
     /// </summary>
-    [JsonPropertyName("noncestr")]
+    [JsonPropertyName("nonceStr")]
     public string NonceStr { get; set; }
 
     /// <summary>
-    /// 时间戳，标准北京时间，时区为东八区，自1970年1月1日 0点0分0秒以来的秒数。注意：部分系统取到的值为毫秒级，需要转换成秒(10位数字)。
+    /// Unix时间戳，是从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
+    /// 注意：常见时间戳为秒级或毫秒级，该处必需传秒级时间戳。
     /// </summary>
-    [JsonPropertyName("timestamp")]
+    [JsonPropertyName("timeStamp")]
     public string TimeStamp { get; set; }
 
     /// <summary>
-    /// 签名，使用字段AppId、TimeStamp、NonceStr、PrepayId计算得出的签名值 注意：取值RSA格式
+    /// 签名，使用字段appId、timeStamp、nonceStr、prepayId以及商户API证书私钥生成的RSA签名值，详细参考APP调起支付签名。
     /// </summary>
     [JsonPropertyName("sign")]
     public string Sign { get; set; }

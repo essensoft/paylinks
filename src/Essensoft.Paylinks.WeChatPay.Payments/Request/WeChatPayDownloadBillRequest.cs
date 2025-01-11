@@ -7,33 +7,14 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 下载账单
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/download-bill.html
 /// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/bill-download/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/bill-download/download-bill.html
-/// 下载账单
-/// 更新时间：2024.01.17
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791868
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070401
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012810615
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791889
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791909
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012085923
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013071238
 /// </para>
 public class WeChatPayDownloadBillRequest : IWeChatPayRequest<WeChatPayDownloadBillResponse>
 {

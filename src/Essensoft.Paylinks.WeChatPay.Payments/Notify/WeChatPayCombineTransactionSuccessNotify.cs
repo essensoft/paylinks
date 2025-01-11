@@ -5,12 +5,11 @@ using Essensoft.Paylinks.WeChatPay.Payments.Domain;
 namespace Essensoft.Paylinks.WeChatPay.Payments.Notify;
 
 /// <summary>
-/// 支付成功通知
+/// 合单订单支付成功回调通知
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/payment-notice.html
-/// 支付通知
-/// 更新时间：2023.08.23
+/// 合单订单支付成功回调通知 - 更新时间：2025.01.08
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012158598
 /// </para>
 public class WeChatPayCombineTransactionSuccessNotify : IWeChatPayNotifyResource
 {

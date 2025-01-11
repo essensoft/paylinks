@@ -7,29 +7,13 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 查询单笔退款（通过商户退款单号）
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/query-by-out-refund-no.html
-/// 查询单笔退款（通过商户退款单号）
-/// 更新时间：2023.08.23
+/// 查询单笔退款（通过商户退款单号） - 更新时间：2025.01.09
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791863
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070374
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012810601
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791884
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791904
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012556587
 /// </para>
 public class WeChatPayRefundQueryByOutRefundNoRequest : IWeChatPayRequest<WeChatPayRefundQueryByOutRefundNoResponse>
 {

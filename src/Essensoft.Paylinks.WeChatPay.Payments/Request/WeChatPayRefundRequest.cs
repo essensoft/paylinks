@@ -7,33 +7,13 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 退款申请
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/refund/refunds/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/create.html
-/// 退款申请
-/// 更新时间：2023.08.23
+/// 申请退款 - 更新时间：2025.01.09
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013071036
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070371
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012810597
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791883
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791903
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012556524
 /// </para>
 public class WeChatPayRefundRequest : IWeChatPayRequest<WeChatPayRefundResponse>
 {

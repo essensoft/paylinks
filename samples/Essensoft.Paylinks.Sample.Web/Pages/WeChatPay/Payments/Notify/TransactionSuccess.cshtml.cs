@@ -15,8 +15,8 @@ public class TransactionSuccessModel(ILogger<TransactionSuccessModel> logger, IW
     private readonly WeChatPayClientOptions _options = options.Value.WeChatPay;
 
     /// <summary>
-    /// 支付成功通知
-    /// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/payment-notice.html
+    /// 支付成功回调通知
+    /// https://pay.weixin.qq.com/doc/v3/merchant/4012791861
     /// </summary>
     public async Task<IActionResult> OnPostAsync()
     {

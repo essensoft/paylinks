@@ -7,9 +7,8 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 撤销
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/code-payment-v3/direct/reverse.html
-/// 撤销
-/// 更新时间：2024.04.15
+/// 撤销 - 更新时间：2024.12.03
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012382161
 /// </para>
 public class WeChatPayReverseRequest : IWeChatPayRequest<WeChatPayReverseResponse>
 {

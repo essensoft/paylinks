@@ -7,25 +7,12 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// 商户订单号查询订单
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/query-by-out-trade-no.html
 /// 商户订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/in-app-payment/query-by-out-trade-no.html
-/// 商户订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/h5-payment/query-by-out-trade-no.html
-/// 商户订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/native-payment/query-by-out-trade-no.html
-/// 商户订单号查询订单
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/query-by-out-trade-no.html
-/// 商户订单号查询订单
-/// 更新时间：2023.08.16
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791859
+/// https://pay.weixin.qq.com/doc/v3/merchant/4013070356
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791838
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791880
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791900
 /// </para>
 public class WeChatPayQueryByOutTradeNoRequest : IWeChatPayRequest<WeChatPayQueryByOutTradeNoResponse>
 {

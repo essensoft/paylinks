@@ -5,13 +5,13 @@ using Essensoft.Paylinks.WeChatPay.Payments.Domain;
 namespace Essensoft.Paylinks.WeChatPay.Payments.Notify;
 
 /// <summary>
-/// 退款结果通知
+/// 退款结果回调通知
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/refund-result-notice.html
-/// https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/refunds/refund-result-notice.html
-/// 退款结果通知
-/// 更新时间：2023.08.23
+/// 退款结果回调通知 - 更新时间：2025.01.02
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791865
+/// 退款结果回调通知 - 更新时间：2025.01.08
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012085921
 /// </para>
 public class WeChatPayRefundResultNotify : IWeChatPayNotifyResource
 {

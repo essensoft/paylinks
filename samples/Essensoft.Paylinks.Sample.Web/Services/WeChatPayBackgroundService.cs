@@ -138,7 +138,7 @@ public class WeChatPayBackgroundService(
                 certificateManager.RemoveUnavailableCertificates();
 
                 // 下载平台证书请求
-                var request = new WeChatPayGetCertificatesRequest();
+                var request = new WeChatPayCertificatesRequest();
 
                 // 无有效平台证书时，不需要验签。
                 if (!certificateManager.GetAvailableCertificates().Any())

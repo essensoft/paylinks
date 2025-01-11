@@ -8,21 +8,14 @@ namespace Essensoft.Paylinks.WeChatPay.Payments.Request;
 /// JSAPI调起支付 / 小程序调起支付
 /// </summary>
 /// <para>
-/// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/jsapi-transfer-payment.html
 /// JSAPI调起支付
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/mini-program-payment/mini-transfer-payment.html
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791857
 /// 小程序调起支付
-/// 更新时间：2023.08.16
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/jsapi-transfer-payment.html
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012791898
 /// JSAPI调起支付
-/// 更新时间：2023.12.28
-/// <br/>
-/// <a href="https://pay.weixin.qq.com/docs/merchant/apis/combine-payment/orders/mini-transfer-payment.html
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012266069
 /// 小程序调起支付
-/// 更新时间：2023.12.12
+/// https://pay.weixin.qq.com/doc/v3/merchant/4012266109
 /// </para>
 public class WeChatPayJsapiTransferPaymentRequest : IWeChatPaySdkRequest<WeChatPayJsapiTransferPaymentResponse>
 {

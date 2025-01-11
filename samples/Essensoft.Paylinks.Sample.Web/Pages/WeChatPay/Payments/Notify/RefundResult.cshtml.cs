@@ -16,8 +16,8 @@ public class RefundResultModel(ILogger<RefundResultModel> logger, IWeChatPayNoti
     private readonly WeChatPayClientOptions _options = options.Value.WeChatPay;
 
     /// <summary>
-    /// 退款结果通知
-    /// https://pay.weixin.qq.com/docs/merchant/apis/jsapi-payment/refund-result-notice.html
+    /// 退款结果回调通知
+    /// https://pay.weixin.qq.com/doc/v3/merchant/4012791865
     /// </summary>
     public async Task<IActionResult> OnPostAsync()
     {
