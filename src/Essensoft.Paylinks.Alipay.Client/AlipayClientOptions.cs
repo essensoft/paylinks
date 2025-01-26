@@ -16,7 +16,7 @@ public class AlipayClientOptions
     public string AppId { get; set; }
 
     /// <summary>
-    /// 应用私钥
+    /// 应用私钥(PKCS#1)
     /// </summary>
     public string AppPrivateKey { get; set; }
 
