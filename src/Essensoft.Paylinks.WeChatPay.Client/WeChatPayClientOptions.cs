@@ -28,7 +28,7 @@ public class WeChatPayClientOptions
     public string MchSerialNo { get; set; }
 
     /// <summary>
-    /// 商户证书私钥
+    /// 商户证书私钥(PKCS#1)
     /// </summary>
     public string MchPrivateKey { get; set; }
 
@@ -38,7 +38,7 @@ public class WeChatPayClientOptions
     public string? WeChatPayPublicKey { get; set; }
 
     /// <summary>
-    /// 微信支付公钥Id(公钥序列号)
+    /// 微信支付公钥Id
     /// </summary>
     public string? WeChatPayPublicKeyId { get; set; }
 
