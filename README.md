@@ -28,7 +28,7 @@
 
 ### 示例
 
-- [Razor Pages](https://github.com/essensoft/paylinks-samples/src/Essensoft.Paylinks.Razor.Pages.Samples.Web)
+- [Razor Pages](https://github.com/essensoft/paylinks-samples/tree/dev/src/Essensoft.Paylinks.Razor.Pages.Samples.Web)
 
 ### 原 Paylink
 
