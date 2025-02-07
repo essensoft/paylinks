@@ -11,6 +11,11 @@ public class WeChatPayNotifyClient(IWeChatPayPlatformCertificateManagerFactory c
 {
     public Task<T> ExecuteAsync<T>(WeChatPayHeaders headers, string body, WeChatPayClientOptions options) where T : IWeChatPayNotifyResource
     {
+        if (headers.Signature.StartsWith(WeChatPayConstants.SignTestPrefix)) // 签名探测流量
+        {
+            throw new WeChatPayException("验签失败: 签名探测流量");
+        }
+
         // 验签
         string certPublicKey;
 
