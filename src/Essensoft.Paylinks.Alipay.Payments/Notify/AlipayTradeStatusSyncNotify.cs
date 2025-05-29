@@ -80,6 +80,12 @@ public class AlipayTradeStatusSyncNotify : IAlipayNotify
     public string BuyerId { get; set; }
 
     /// <summary>
+    /// 买家支付宝用户唯一标识  详情可查看 openid简介
+    /// </summary>
+    [JsonPropertyName("buyer_open_id")]
+    public string? BuyerOpenId { get; set; }
+
+    /// <summary>
     /// 买家支付宝账号
     /// </summary>
     [JsonPropertyName("buyer_logon_id")]
