@@ -17,6 +17,7 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>

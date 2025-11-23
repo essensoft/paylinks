@@ -96,7 +96,7 @@ public static class AlipayCertUtilities
         // issuer不以"CN"开头，则需要反转顺序
         if (!issuer.StartsWith("CN", StringComparison.OrdinalIgnoreCase))
         {
-            issuer = string.Join(',', issuer.Split(',').Reverse());
+            issuer = string.Join(',', issuer.Split(',').AsEnumerable().Reverse());
         }
 
         return MD5.ComputeHash(issuer + serialNumber).ToLowerInvariant();
