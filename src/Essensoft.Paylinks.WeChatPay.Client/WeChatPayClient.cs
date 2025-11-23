@@ -24,19 +24,19 @@ public class WeChatPayClient(IHttpClientFactory httpClientFactory, IWeChatPayPla
         else
         {
             var certificateManager = certificateManagerFactory.Create(options.MchId);
-            var certificate = certificateManager.GetAvailableCertificates().OrderByDescending(c => c.EffectiveTime).FirstOrDefault() ?? throw new WeChatPayException("验签失败: 微信平台证书管理器中未找到有效平台证书");
-            if (string.IsNullOrEmpty(certificate.PublicKey))
-            {
-                throw new WeChatPayException("验签失败: 平台证书公钥为空");
-            }
+            var certificate = certificateManager.GetAvailableCertificates().OrderByDescending(c => c.EffectiveTime).FirstOrDefault();
 
-            certSerialNo = certificate.SerialNo;
-            certPublicKey = certificate.PublicKey;
+            certSerialNo = certificate?.SerialNo;
+            certPublicKey = certificate?.PublicKey;
         }
 
         if (request is IWeChatPaySecretRequest<T> secretRequest)
         {
             // 加密敏感信息
+            if (string.IsNullOrEmpty(certPublicKey))
+            {
+                throw new WeChatPayException("验签失败: 微信平台证书管理器中未找到有效平台证书");
+            }
             secretRequest.EncryptSecretRequest(certPublicKey);
         }
 
