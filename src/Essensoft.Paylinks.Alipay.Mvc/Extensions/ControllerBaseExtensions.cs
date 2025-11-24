@@ -4,8 +4,11 @@ namespace Essensoft.Paylinks.Alipay.Mvc.Extensions;
 
 public static class ControllerBaseExtensions
 {
-    public static async Task<Dictionary<string, string>> GetAlipayParametersAsync(this ControllerBase controllerBase)
+    extension(ControllerBase controllerBase)
     {
-        return await controllerBase.Request.GetAlipayParametersAsync().ConfigureAwait(false);
+        public async Task<Dictionary<string, string>> GetAlipayParametersAsync()
+        {
+            return await controllerBase.Request.GetAlipayParametersAsync().ConfigureAwait(false);
+        }
     }
 }

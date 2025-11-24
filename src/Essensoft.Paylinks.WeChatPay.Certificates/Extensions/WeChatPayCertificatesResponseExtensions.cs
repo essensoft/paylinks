@@ -5,35 +5,45 @@ using Essensoft.Paylinks.WeChatPay.Core;
 
 namespace Essensoft.Paylinks.WeChatPay.Certificates.Extensions;
 
+/// <summary>
+///
+/// </summary>
 public static class WeChatPayCertificatesResponseExtensions
 {
     /// <summary>
-    /// 获取解密后的平台证书
+    ///
     /// </summary>
-    public static List<WeChatPayPlatformCertificate> GetWeChatPayDecryptedPlatformCertificates(this WeChatPayCertificatesResponse response, string APIv3Key)
+    /// <param name="response"></param>
+    extension(WeChatPayCertificatesResponse response)
     {
-        ArgumentNullException.ThrowIfNull(response);
-
-        var list = new List<WeChatPayPlatformCertificate>();
-
-        if (response.Certificates != null)
+        /// <summary>
+        /// 获取解密后的平台证书
+        /// </summary>
+        public List<WeChatPayPlatformCertificate> GetWeChatPayDecryptedPlatformCertificates(string APIv3Key)
         {
-            foreach (var certificate in response.Certificates)
+            ArgumentNullException.ThrowIfNull(response);
+
+            var list = new List<WeChatPayPlatformCertificate>();
+
+            if (response.Certificates != null)
             {
-                switch (certificate.EncryptCertificate.Algorithm)
+                foreach (var certificate in response.Certificates)
                 {
-                    case WeChatPayEncryptionTypes.AEAD_AES_256_GCM:
-                        {
-                            var certStr = AEAD_AES_256_GCM.Decrypt(certificate.EncryptCertificate.Nonce, certificate.EncryptCertificate.Ciphertext, certificate.EncryptCertificate.AssociatedData!, APIv3Key);
-                            var cert = X509Certificate2.CreateFromPem(certStr);
-                            var publicKey = Convert.ToBase64String(cert.GetRSAPublicKey()!.ExportSubjectPublicKeyInfo());
-                            list.Add(new WeChatPayPlatformCertificate(certificate.SerialNo, certificate.EffectiveTime, certificate.ExpireTime, cert, publicKey));
-                        }
-                        break;
+                    switch (certificate.EncryptCertificate.Algorithm)
+                    {
+                        case WeChatPayEncryptionTypes.AEAD_AES_256_GCM:
+                            {
+                                var certStr = AEAD_AES_256_GCM.Decrypt(certificate.EncryptCertificate.Nonce, certificate.EncryptCertificate.Ciphertext, certificate.EncryptCertificate.AssociatedData!, APIv3Key);
+                                var cert = X509Certificate2.CreateFromPem(certStr);
+                                var publicKey = Convert.ToBase64String(cert.GetRSAPublicKey()!.ExportSubjectPublicKeyInfo());
+                                list.Add(new WeChatPayPlatformCertificate(certificate.SerialNo, certificate.EffectiveTime, certificate.ExpireTime, cert, publicKey));
+                            }
+                            break;
+                    }
                 }
             }
-        }
 
-        return list;
+            return list;
+        }
     }
 }

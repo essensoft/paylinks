@@ -4,18 +4,21 @@ namespace Essensoft.Paylinks.Alipay.Client.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IHttpClientBuilder AddAlipayClient(this IServiceCollection services, int timeout = 15)
+    extension(IServiceCollection services)
     {
-        return services.AddAlipayClient(httpClient =>
+        public IHttpClientBuilder AddAlipayClient(int timeout = 15)
         {
-            httpClient.Timeout = TimeSpan.FromSeconds(timeout);
-        });
-    }
+            return services.AddAlipayClient(httpClient =>
+            {
+                httpClient.Timeout = TimeSpan.FromSeconds(timeout);
+            });
+        }
 
-    public static IHttpClientBuilder AddAlipayClient(this IServiceCollection services, Action<HttpClient> configureClient)
-    {
-        services.AddSingleton<IAlipayClient, AlipayClient>();
-        services.AddSingleton<IAlipayNotifyClient, AlipayNotifyClient>();
-        return services.AddHttpClient(AlipayClient.HttpClientName, configureClient);
+        public IHttpClientBuilder AddAlipayClient(Action<HttpClient> configureClient)
+        {
+            services.AddSingleton<IAlipayClient, AlipayClient>();
+            services.AddSingleton<IAlipayNotifyClient, AlipayNotifyClient>();
+            return services.AddHttpClient(AlipayClient.HttpClientName, configureClient);
+        }
     }
 }
