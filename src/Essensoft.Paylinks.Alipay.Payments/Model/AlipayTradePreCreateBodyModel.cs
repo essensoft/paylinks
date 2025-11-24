@@ -18,7 +18,7 @@ public class AlipayTradePreCreateBodyModel
     public string TotalAmount { get; set; }
 
     /// <summary>
-    /// 订单标题。注意：不可使用特殊字符，如 /，=，& 等。
+    /// 订单标题。注意：不可使用特殊字符，如 /，=，&amp; 等。
     /// </summary>
     [JsonPropertyName("subject")]
     public string Subject { get; set; }

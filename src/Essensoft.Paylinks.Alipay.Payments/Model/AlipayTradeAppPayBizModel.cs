@@ -20,7 +20,7 @@ public class AlipayTradeAppPayBizModel
 
     /// <summary>
     /// 订单标题。
-    /// 注意：不可使用特殊字符，如 /，=，& 等。
+    /// 注意：不可使用特殊字符，如 /，=，&amp; 等。
     /// </summary>
     [JsonPropertyName("subject")]
     public string Subject { get; set; }
